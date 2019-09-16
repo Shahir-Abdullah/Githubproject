@@ -27,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
     Double df, di;
     /*Riday*/
 
+    /*Takik*/
+    EditText txtkg, txtpound;
+    String kg = "80", pound = "1";
+    Double dkg, dpound;
+    /*Takik*/
+
     boolean dol, tak;
 
     @Override
@@ -42,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
         txtfeet=(EditText) findViewById(R.id.feet);
         txtinch=(EditText) findViewById(R.id.inch);
         /*Riday*/
+
+        /*Takik*/
+        txtkg=(EditText) findViewById(R.id.kg);
+        txtpound=(EditText) findViewById(R.id.pound);
+        /*Takik*/
 
 
         //taka to dollar
@@ -130,6 +141,9 @@ public class MainActivity extends AppCompatActivity {
         /*Riday*/
         con2();
         /*Riday*/
+        /*Takik*/
+        con3();
+        /*takik*/
         //this is shahir abdullah
 
 
@@ -164,6 +178,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
     /*Riday*/
+
+    /*Takik*/
+    public void con3()
+    {
+        if(tak == false)
+        {
+            txtkg.addTextChangedListener(onTextChangedListener2pound());
+        }
+        else{
+            txtpound.addTextChangedListener(onTextChangedListener2kg());
+        }
+
+    }
+    /*Takik*/
 
     private TextWatcher onTextChangedListener2Dollar(){
         return new TextWatcher() {
@@ -326,4 +354,87 @@ public class MainActivity extends AppCompatActivity {
         };
     }
     /*Riday*/
+
+    /*Takik*/
+    private TextWatcher onTextChangedListener2pound(){
+        return new TextWatcher() {
+            boolean _ignore = false;
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() > 0) {
+                    if (_ignore)
+                        return;
+                    _ignore = true;
+                    //txtdollar.removeTextChangedListener(this);
+                    txtpound.setText(" ");
+                    kg = editable.toString();
+                    dpound = Double.valueOf(kg) * 2.20462;
+                    pound = String.valueOf(dpound);
+                    txtpound.setText(pound);
+
+                    _ignore = false;
+
+                    //txtdollar.addTextChangedListener(this);
+                }
+                else{
+                    txtpound.setText(null);
+                    _ignore = false;
+                }
+
+            }
+        };
+    }
+
+
+    private TextWatcher onTextChangedListener2kg(){
+        // This convertion doesn't matter anyway so we won't change this
+        return new TextWatcher() {
+            boolean _ignore = false;
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length() > 0){
+                    if(_ignore)
+                        return;
+                    _ignore = true;
+                    txtfeet.setText(" ");
+                    //txttaka.removeTextChangedListener(this);
+
+                    inch = editable.toString();
+                    df = Double.valueOf(feet) / 12.0;
+                    feet = String.valueOf(df);
+                    txtfeet.setText(feet);
+                    _ignore = false;
+
+
+                    //txttaka.addTextChangedListener(this);
+                }
+                else{
+                    txtfeet.setText(null);
+                    _ignore = false;
+                }
+
+            }
+        };
+    }
+    /*Takik*/
 }
