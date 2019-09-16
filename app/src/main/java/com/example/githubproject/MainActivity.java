@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
     Double dkm, dmile;
     /*Rafa*/
 
+    /*Zubair*/
+    EditText txtcm, txtmeter;
+    String cm = "80", meter = "1";
+    Double dcm, dmeter;
+    /*Zubair*/
+
     boolean dol, tak;
 
     @Override
@@ -64,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         txtkm=(EditText) findViewById(R.id.km);
         txtmile=(EditText) findViewById(R.id.mile);
         /*Rafa*/
+
+        /*Zubair*/
+        txtcm=(EditText) findViewById(R.id.cm);
+        txtmeter=(EditText) findViewById(R.id.meter);
+        /*Zubair*/
 
 
         //taka to dollar
@@ -158,6 +169,9 @@ public class MainActivity extends AppCompatActivity {
         /*Rafa*/
         con4();
         /*Rafa*/
+        /*Zubair*/
+        con5();
+        /*Zubair*/
         //this is shahir abdullah
 
 
@@ -220,6 +234,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
     /*rafa*/
+
+    /*Zubair*/
+    public void con5()
+    {
+        if(tak == false)
+        {
+            txtcm.addTextChangedListener(onTextChangedListener2meter());
+        }
+        else{
+            txtmeter.addTextChangedListener(onTextChangedListener2cm());
+        }
+
+    }
+    /*Zubair*/
 
     private TextWatcher onTextChangedListener2Dollar(){
         return new TextWatcher() {
@@ -548,4 +576,87 @@ public class MainActivity extends AppCompatActivity {
         };
     }
     /*rafa*/
+
+    /*Zubair*/
+    private TextWatcher onTextChangedListener2meter(){
+        return new TextWatcher() {
+            boolean _ignore = false;
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() > 0) {
+                    if (_ignore)
+                        return;
+                    _ignore = true;
+                    //txtdollar.removeTextChangedListener(this);
+                    txtmeter.setText(" ");
+                    cm = editable.toString();
+                    dmeter = Double.valueOf(cm) / 100;
+                    meter = String.valueOf(dmeter);
+                    txtmeter.setText(meter);
+
+                    _ignore = false;
+
+                    //txtdollar.addTextChangedListener(this);
+                }
+                else{
+                    txtmeter.setText(null);
+                    _ignore = false;
+                }
+
+            }
+        };
+    }
+
+
+    private TextWatcher onTextChangedListener2cm(){
+        // This convertion doesn't matter anyway so we won't change this
+        return new TextWatcher() {
+            boolean _ignore = false;
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length() > 0){
+                    if(_ignore)
+                        return;
+                    _ignore = true;
+                    txtfeet.setText(" ");
+                    //txttaka.removeTextChangedListener(this);
+
+                    inch = editable.toString();
+                    df = Double.valueOf(feet) / 12.0;
+                    feet = String.valueOf(df);
+                    txtfeet.setText(feet);
+                    _ignore = false;
+
+
+                    //txttaka.addTextChangedListener(this);
+                }
+                else{
+                    txtfeet.setText(null);
+                    _ignore = false;
+                }
+
+            }
+        };
+    }
+    /*Zubair*/
 }
