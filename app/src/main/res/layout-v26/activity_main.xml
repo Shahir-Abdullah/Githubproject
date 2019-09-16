@@ -46,14 +46,134 @@
             android:text=""
             android:inputType="text"
             android:textAlignment="center"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:importantForAutofill="no" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="129dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/feet"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="50dp"
+            android:hint="Feet"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/inch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Inch"
+            android:paddingTop="50dp"
+            android:text=""
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:importantForAutofill="no" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/convert"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="115dp"
-        android:text="@string/convert" />
+        android:layout_height="129dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/km"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="50dp"
+            android:hint="Kilometer"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/mile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Mile"
+            android:paddingTop="50dp"
+            android:text=""
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:importantForAutofill="no" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="129dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/cm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="50dp"
+            android:hint="Centimeter"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/meter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Meter"
+            android:paddingTop="50dp"
+            android:text=""
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:importantForAutofill="no" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="129dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/kg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="50dp"
+            android:hint="Kilogram"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/pound"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Pound"
+            android:paddingTop="50dp"
+            android:text=""
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:importantForAutofill="no" />
+    </LinearLayout>
+
+
 
 </LinearLayout>
 
