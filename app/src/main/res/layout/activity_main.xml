@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,17 +8,6 @@
     android:orientation="vertical"
 
     tools:context=".MainActivity">
-
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:paddingTop="10dp"
-        android:text="@string/currency_converter" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:hint="@string/taka"
             android:inputType="text"
             android:textAlignment="center"
@@ -42,7 +32,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/dollar"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:text=""
             android:inputType="text"
             android:textAlignment="center"
@@ -59,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:hint="Feet"
             android:inputType="text"
             android:textAlignment="center"
@@ -72,7 +62,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="Inch"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:text=""
             android:inputType="text"
             android:textAlignment="center"
@@ -90,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:hint="Kilometer"
             android:inputType="text"
             android:textAlignment="center"
@@ -103,7 +93,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="Mile"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:text=""
             android:inputType="text"
             android:textAlignment="center"
@@ -121,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:hint="Centimeter"
             android:inputType="text"
             android:textAlignment="center"
@@ -134,7 +124,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="Meter"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:text=""
             android:inputType="text"
             android:textAlignment="center"
@@ -152,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:hint="Kilogram"
             android:inputType="text"
             android:textAlignment="center"
@@ -165,7 +155,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="Pound"
-            android:paddingTop="50dp"
+            android:paddingTop="1dp"
             android:text=""
             android:inputType="text"
             android:textAlignment="center"
