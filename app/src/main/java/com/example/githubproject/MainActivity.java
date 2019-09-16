@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btncnvt;
     EditText txtdollar, txttaka;
+    EditText txtinch, txtfeet;
+    Button inchfeet;
     String dollar = "80", taka = "1";
     Double d, t;
     boolean dol, tak;
@@ -27,13 +29,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btncnvt=(Button)findViewById(R.id.convert);
+        inchfeet=(Button)findViewById(R.id.inchfeet);
+        feetinch=(Button)findViewById(R.id.feetinch);
         txtdollar=(EditText) findViewById(R.id.txtdollar);
-
         txttaka=(EditText) findViewById(R.id.txttaka);
-
-
-
-
+	txtinch=(EditText) findViewById(R.id.txtinch);
+        txtfeet=(EditText) findViewById(R.id.txtfeet);
         //taka to dollar
 
         //txtdollar.addTextChangedListener(onTextChangedListener());
@@ -108,9 +109,29 @@ public class MainActivity extends AppCompatActivity {
              //txtdollar.setText("dol a");
 
 
+	inchfeet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String in = txtinch.getText().toString();
+		String fe = txtfeet.getText().toString();
+		double i = Double.parseDouble(in);
+		double f = Double.parseDouble(fe);
+		double res = i/12;
+		txtfeet.setText(res.toString());
+            }
+        });
 
-
-
+	inchfeet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String in = txtinch.getText().toString();
+		String fe = txtfeet.getText().toString();
+		double i = Double.parseDouble(in);
+		double f = Double.parseDouble(fe);
+		double res = f*12;
+		txtinch.setText(res.toString());
+            }
+        });
 
 
         btncnvt.setOnClickListener(new View.OnClickListener() {
