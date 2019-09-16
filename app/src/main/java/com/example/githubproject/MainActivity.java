@@ -33,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
     Double dkg, dpound;
     /*Takik*/
 
+    /*Rafa*/
+    EditText txtkm, txtmile;
+    String km = "80", mile = "1";
+    Double dkm, dmile;
+    /*Rafa*/
+
     boolean dol, tak;
 
     @Override
@@ -53,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         txtkg=(EditText) findViewById(R.id.kg);
         txtpound=(EditText) findViewById(R.id.pound);
         /*Takik*/
+
+        /*Rafa*/
+        txtkm=(EditText) findViewById(R.id.km);
+        txtmile=(EditText) findViewById(R.id.mile);
+        /*Rafa*/
 
 
         //taka to dollar
@@ -144,6 +155,9 @@ public class MainActivity extends AppCompatActivity {
         /*Takik*/
         con3();
         /*takik*/
+        /*Rafa*/
+        con4();
+        /*Rafa*/
         //this is shahir abdullah
 
 
@@ -192,6 +206,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
     /*Takik*/
+
+    /*rafa*/
+    public void con4()
+    {
+        if(tak == false)
+        {
+            txtkm.addTextChangedListener(onTextChangedListener2mile());
+        }
+        else{
+            txtmile.addTextChangedListener(onTextChangedListener2km());
+        }
+
+    }
+    /*rafa*/
 
     private TextWatcher onTextChangedListener2Dollar(){
         return new TextWatcher() {
@@ -437,4 +465,87 @@ public class MainActivity extends AppCompatActivity {
         };
     }
     /*Takik*/
+
+    /*rafa*/
+    private TextWatcher onTextChangedListener2mile(){
+        return new TextWatcher() {
+            boolean _ignore = false;
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() > 0) {
+                    if (_ignore)
+                        return;
+                    _ignore = true;
+                    //txtdollar.removeTextChangedListener(this);
+                    txtmile.setText(" ");
+                    km = editable.toString();
+                    dmile = Double.valueOf(km) * 0.621371;
+                    mile = String.valueOf(dmile);
+                    txtmile.setText(mile);
+
+                    _ignore = false;
+
+                    //txtdollar.addTextChangedListener(this);
+                }
+                else{
+                    txtmile.setText(null);
+                    _ignore = false;
+                }
+
+            }
+        };
+    }
+
+
+    private TextWatcher onTextChangedListener2km(){
+        // This convertion doesn't matter anyway so we won't change this
+        return new TextWatcher() {
+            boolean _ignore = false;
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length() > 0){
+                    if(_ignore)
+                        return;
+                    _ignore = true;
+                    txtfeet.setText(" ");
+                    //txttaka.removeTextChangedListener(this);
+
+                    inch = editable.toString();
+                    df = Double.valueOf(feet) / 12.0;
+                    feet = String.valueOf(df);
+                    txtfeet.setText(feet);
+                    _ignore = false;
+
+
+                    //txttaka.addTextChangedListener(this);
+                }
+                else{
+                    txtfeet.setText(null);
+                    _ignore = false;
+                }
+
+            }
+        };
+    }
+    /*rafa*/
 }
