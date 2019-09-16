@@ -16,6 +16,7 @@
         android:textAlignment="center"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:paddingTop="10dp"
         android:text="@string/currency_converter" />
 
     <LinearLayout
@@ -29,10 +30,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:paddingTop="50dp"
-            android:text=""
+            android:hint="@string/taka"
+            android:inputType="text"
             android:textAlignment="center"
             android:textSize="25sp"
-            android:inputType=""
             android:importantForAutofill="no" />
 
         <EditText
@@ -40,12 +41,12 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:hint="@string/dollar"
             android:paddingTop="50dp"
             android:text=""
+            android:inputType="text"
             android:textAlignment="center"
-            android:textSize="25sp"
-            android:importantForAutofill="no" />
-
+            android:textSize="25sp" />
     </LinearLayout>
 
     <Button
@@ -55,3 +56,12 @@
         android:text="@string/convert" />
 
 </LinearLayout>
+
+
+
+
+
+
+
+
+
