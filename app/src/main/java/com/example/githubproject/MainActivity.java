@@ -18,23 +18,32 @@ public class MainActivity extends AppCompatActivity {
 
     Button btncnvt;
     EditText txtdollar, txttaka;
-    EditText txtinch, txtfeet;
-    Button inchfeet;
     String dollar = "80", taka = "1";
     Double d, t;
+
+    /*Riday*/
+    EditText txtfeet, txtinch;
+    String feet = "80", inch = "1";
+    Double df, di;
+    /*Riday*/
+
     boolean dol, tak;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btncnvt=(Button)findViewById(R.id.convert);
-        inchfeet=(Button)findViewById(R.id.inchfeet);
-        feetinch=(Button)findViewById(R.id.feetinch);
+
         txtdollar=(EditText) findViewById(R.id.txtdollar);
+
         txttaka=(EditText) findViewById(R.id.txttaka);
-	txtinch=(EditText) findViewById(R.id.txtinch);
-        txtfeet=(EditText) findViewById(R.id.txtfeet);
+
+        /*Riday*/
+        txtfeet=(EditText) findViewById(R.id.feet);
+        txtinch=(EditText) findViewById(R.id.inch);
+        /*Riday*/
+
+
         //taka to dollar
 
         //txtdollar.addTextChangedListener(onTextChangedListener());
@@ -109,70 +118,29 @@ public class MainActivity extends AppCompatActivity {
              //txtdollar.setText("dol a");
 
 
-	inchfeet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String in = txtinch.getText().toString();
-		String fe = txtfeet.getText().toString();
-		double i = Double.parseDouble(in);
-		double f = Double.parseDouble(fe);
-		double res = i/12;
-		txtfeet.setText(res.toString());
-            }
-        });
-
-	inchfeet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String in = txtinch.getText().toString();
-		String fe = txtfeet.getText().toString();
-		double i = Double.parseDouble(in);
-		double f = Double.parseDouble(fe);
-		double res = f*12;
-		txtinch.setText(res.toString());
-            }
-        });
 
 
-        btncnvt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tak = true;
-            }
-        });
 
 
-        con();
+
+
+
+
+        con1();
+        /*Riday*/
+        con2();
+        /*Riday*/
         //this is shahir abdullah
 
 
     }
 
 
-    public void con()
+    public void con1()
     {
 
-            txttaka.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    txttaka.setText(null);
-                    tak = false;
-                    dol = true;
-                    //txttaka.addTextChangedListener(onTextChangedListener2Dollar());
-                    //txttaka.setText(null);
-                }
-            });
 
-            txtdollar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    txtdollar.setText(null);
-                    tak = true;
-                    dol = false;
-                    //txtdollar.addTextChangedListener(onTextChangedListener2Taka());
-                    //txtdollar.setText(null);
-                }
-            });
+
             if(tak == false)
             {
                 txttaka.addTextChangedListener(onTextChangedListener2Dollar());
@@ -182,6 +150,21 @@ public class MainActivity extends AppCompatActivity {
             }
 
     }
+
+    /*Riday*/
+    public void con2()
+    {
+        if(tak == false)
+        {
+            txtfeet.addTextChangedListener(onTextChangedListener2inch());
+        }
+        else{
+            txtinch.addTextChangedListener(onTextChangedListener2feet());
+        }
+
+    }
+    /*Riday*/
+
     private TextWatcher onTextChangedListener2Dollar(){
         return new TextWatcher() {
             boolean _ignore = false;
@@ -262,8 +245,10 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    private TextWatcher onTextChangedListener(){
+    /*Riday*/
+    private TextWatcher onTextChangedListener2inch(){
         return new TextWatcher() {
+            boolean _ignore = false;
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -276,17 +261,69 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                //txttaka.removeTextChangedListener(this);
-                //txtdollar.removeTextChangedListener();
+                if (editable.length() > 0) {
+                    if (_ignore)
+                        return;
+                    _ignore = true;
+                    //txtdollar.removeTextChangedListener(this);
+                    txtinch.setText(" ");
+                    feet = editable.toString();
+                    di = Double.valueOf(feet) * 12;
+                    inch = String.valueOf(di);
+                    txtinch.setText(inch);
 
+                    _ignore = false;
 
-                txtdollar.addTextChangedListener(onTextChangedListener2Dollar());
-                //txttaka.addTextChangedListener(onTextChangedListener2Taka(editable.toString()));
+                    //txtdollar.addTextChangedListener(this);
+                }
+                else{
+                    txtinch.setText(null);
+                    _ignore = false;
+                }
 
-
-                //txttaka.addTextChangedListener(this);
-                //txtdollar.addTextChangedListener(this);
             }
         };
     }
+
+
+    private TextWatcher onTextChangedListener2feet(){
+        return new TextWatcher() {
+            boolean _ignore = false;
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length() > 0){
+                    if(_ignore)
+                        return;
+                    _ignore = true;
+                    txtfeet.setText(" ");
+                    //txttaka.removeTextChangedListener(this);
+
+                    inch = editable.toString();
+                    df = Double.valueOf(feet) / 12.0;
+                    feet = String.valueOf(df);
+                    txtfeet.setText(feet);
+                    _ignore = false;
+
+
+                    //txttaka.addTextChangedListener(this);
+                }
+                else{
+                    txtfeet.setText(null);
+                    _ignore = false;
+                }
+
+            }
+        };
+    }
+    /*Riday*/
 }
